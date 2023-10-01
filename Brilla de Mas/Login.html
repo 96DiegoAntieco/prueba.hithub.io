@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" type="text/css" href="estilos-login.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>INICIAR SESIÓN</h2>
+        <form id="login-form">
+            <label for="usuario">NOMBRE DE USUARIO:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
+
+            <label for="contrasena">INGRESE SU CONTRASEÑA:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Contrasena" required>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="script.js"> document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('login-form');
+            const message = document.getElementById('message');
+
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                //  autenticación.
+
+
+                // verifica que el usuario y la contraseña en una base de datos o en un objeto predefinido.
+                const usuario = document.getElementById('usuario').value;
+                const contrasena = document.getElementById('contrasena').value;
+
+                if (usuario === 'usuario' && contrasena === 'contrasena') {
+                    // Autenticación exitosa, redireccionar  if (email.length > 100) {
+                    Swal.fire({
+                        icon: "succes",
+                        title: "correcto",
+                        text: "Haz ingresado correctamente.",
+                    });
+                    return;
+                }
+                //  message.textContent = 'Inicio de sesión exitoso.';
+                // message.style.color = 'green';
+            } if (usuario != 'usuario' || contrasena != 'contrasena') {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Por favor, uno de los campos es incorrectos",
+                });
+
+            }
+
+
+            //else {
+            // Autenticación fallida, mostrar un mensaje de error
+            //message.textContent = 'Usuario o contraseña incorrectos.';
+            //message.style.color = 'red';
+            //}
+            //});
+        });
+    </script>
+</body>
+
+</html>
